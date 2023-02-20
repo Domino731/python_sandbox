@@ -18,7 +18,6 @@ invalid_input_text = 'Enter a valid number'
 def generate_random_number(min, max):
     return random.randint(min, max)
 
-
 while available_mistakes <= -1:
     try:
         available_mistakes = math.ceil(float(input('Enter available mistakes: ')))
@@ -40,9 +39,12 @@ while max_number <= min_number:
 user_number = -1
 target_number = -1
 
-while current_mistakes <= available_mistakes:
+while current_mistakes < available_mistakes:
+
     if target_number == -1:
         target_number = generate_random_number(min_number, max_number)
+    else:
+        print('Mistakes left: ' + str(available_mistakes - current_mistakes))
 
     user_number = math.ceil(float(input('Enter number: ')))
 
@@ -51,5 +53,11 @@ while current_mistakes <= available_mistakes:
         target_number = generate_random_number(min_number, max_number)
         print('Congrats, you guessed the number!')
     else:
+        print('Wrong number')
         current_mistakes += 1
 
+print('Final score: ' + str(user_score))
+
+# tests
+assert generate_random_number(10, 100) in range(10, 100)
+assert generate_random_number(10, 100) not in range(0, 5)
