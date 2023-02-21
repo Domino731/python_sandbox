@@ -15,7 +15,38 @@ def create_emails_dict():
             payload.setdefault(words_array[1], email_data)
     except:
         print('An error occurred while trying to read the emails.txt file')
-    print(payload)
+    return payload
 
 
-create_emails_dict()
+EMAILS_DATA = create_emails_dict()
+
+
+def email_slicer(email):
+    if '@' in email:
+        index = email.index('@') + 1
+        email_length = len(email)
+        provider = email[index:email_length]
+        user = email[0: index]
+        return provider, user
+    else:
+        return None
+
+
+def get_email_data(provider):
+    if provider in EMAILS_DATA:
+        return EMAILS_DATA.get(provider)
+    else:
+        return None
+
+
+user_email = email_slicer('domik@gmail.com')
+email_data = get_email_data(user_email[0])
+
+if email_data is not None:
+    # {'rank': '1', 'provider': 'gmail.com', 'usage': '17.74%'}
+    print('Your e-mail')
+    print("is " + email_data['rank'] + " in ranking")
+    print("provider is " + email_data['provider'])
+    print("global usage is " + email_data['usage'])
+else:
+    print('Error: email not found :(')
