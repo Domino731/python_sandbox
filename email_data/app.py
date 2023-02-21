@@ -1,4 +1,11 @@
-# data from https://email-verify.my-addr.com/list-of-most-popular-email-domains.php
+# APP: 05
+# DATE: 21.02.2023
+# Description: create an app for reading email data
+# DIRECTORY:
+# app.py - main script
+# emails.text - text which holding data about e-mails (top 100 from https://email-verify.my-addr.com/list-of-most-popular-email-domains.php)
+# test.py - test for app
+
 
 def create_emails_dict():
     payload = {}
