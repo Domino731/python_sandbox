@@ -8,14 +8,14 @@ id = 0
 
 def display_all_contacts():
     for contact in contacts:
-        print('Contact id', contact.id)
-        print('Contact name', contact.name)
-        print('Contact number', contact.number)
-        print('Contact address', contact.address)
+        print('Contact id', contact.get('id'))
+        print('Contact name', contact.get('name'))
+        print('Contact number', contact.get('number'))
+        print('Contact address', contact.get('address'))
 
 
 def display_contacts_amount():
-    print('Your book has ' + str(len(contacts)) + 'contacts')
+    print('Your book has ' + str(len(contacts)) + ' contacts')
 
 
 def add_new_contact():
@@ -29,12 +29,14 @@ def add_new_contact():
 def remove_contact():
     contact_id = input('Enter id of contact that you want to delete')
     context_index = 0
-    for contact, index in contacts:
-        if contact_id == contact.id:
+    for i in enumerate(contacts):
+        index = i[0]
+        contact = i[1]
+        contact = contacts[index]
+        if contact_id == contact.get('id'):
             context_index = index
             break
     contacts.pop(context_index)
-
 
 
 while True:
