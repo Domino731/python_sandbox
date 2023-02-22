@@ -36,7 +36,9 @@ def remove_contact():
         if contact_id == contact.get('id'):
             context_index = index
             break
-    contacts.pop(context_index)
+
+    if context_index != 0:
+        contacts.pop(context_index)
 
 
 while True:
