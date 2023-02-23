@@ -20,7 +20,6 @@ def get_random_item():
 
 
 def check_result(computer, user):
-    computer_choice = DATA.get(computer)
     user_choice = DATA.get(user)
     if computer == user:
         return None
@@ -28,7 +27,7 @@ def check_result(computer, user):
         return computer == user_choice[1]
 
 
-is_winning = True
+is_winning = False
 score = 0
 while is_winning:
     computer_choice = get_random_item()
