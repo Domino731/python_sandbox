@@ -8,5 +8,5 @@ assert type(get_strings()[0]) is str
 assert type(get_specials()[0]) is str
 assert type(create_password()) is str
 assert type(specials_characters) is list
-assert type(shuffle_string()) is str
+assert type(shuffle_string('lorem_ipsum_999')) is str
 assert shuffle_string('lorem_ipsum_999') is not 'lorem_ipsum_999'
